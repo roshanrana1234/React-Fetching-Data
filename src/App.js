@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "@mui/material"
+import MuiNavBar from "./component/MuiNavBar"
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import MuiHome from "./component/MuiHome";
+import MuiContact from "./component/MuiContact";
+import MuiNote from "./component/MuiNote";
+import MuiLink from "./component/MuiLink";
+import MuiBlogDetail from "./component/MuiBlogDetail";
+// import MuiFooter from "./component/MuiFooter";
+// import MuiNote from "./component/MuiNote";
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+      <Container>
+        <BrowserRouter>
+          <MuiNavBar />
+          <Routes>
+            <Route path="/home" element={<MuiHome />} />
+            <Route path="/contact" element={<MuiContact />} />
+            <Route path="/notes" element={<MuiNote />} />
+            <Route path="/blogs/:id" element={<MuiBlogDetail />} />
+            {/* <Route path="/link" element={<MuiLink />} /> */}
+          </Routes>
+          {/* <MuiFooter /> */}
+        </BrowserRouter>
+      </Container>
+    </>
+  )
 }
 
-export default App;
+export default App
